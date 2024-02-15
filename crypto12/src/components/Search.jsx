@@ -17,6 +17,12 @@ const SearchInput = ({ handleSearch }) => {
       // Call the handleSearch function passed from the parent component
       handleSearch(query);
     };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Call the handleSearch function with the current search text
+        handleSearch(searchText);
+      };
   
    
     return (
