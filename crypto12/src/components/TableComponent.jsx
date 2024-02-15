@@ -9,7 +9,12 @@ import { StorageContext } from "./../context/StorageContext";
 const SaveBtn = ({ data }) => {
     const { saveCoin, allCoins, removeCoin } = useContext(StorageContext);
   
+    const handleClick = (e) => {
+        e.preventDefault();
+        saveCoin(data.id);
     
+        
+      };
   
     return (
       <button
