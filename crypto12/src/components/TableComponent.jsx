@@ -12,8 +12,13 @@ const SaveBtn = ({ data }) => {
     const handleClick = (e) => {
         e.preventDefault();
         saveCoin(data.id);
-    
-        
+
+    // Check if the coin is already saved
+        if (allCoins.includes(data.id)) {
+          removeCoin(data.id);
+        } else {
+          saveCoin(data.id);
+        }
       };
   
     return (
@@ -165,8 +170,7 @@ const TableComponent = () => {
               : error.search
               ? error.search
               : "Something unexpected happened!"}
-              {/* Here we have use multi chain conditions using ternary operator/ this is not
-              covered in the video but for the example and some improvements */}
+              : ""
           </h1>
         ) : null}
       </div>
