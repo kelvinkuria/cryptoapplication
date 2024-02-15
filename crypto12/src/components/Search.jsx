@@ -23,7 +23,13 @@ const SearchInput = ({ handleSearch }) => {
         // Call the handleSearch function with the current search text
         handleSearch(searchText);
       };
-  
+  // Function to select a coin from the search results
+  const selectCoin = (coinId) => {
+    setCoinSearch(coinId);
+    // Reset search text and search data
+    setSearchText("");
+    setSearchData();
+  };
    
     return (
         <>
@@ -71,6 +77,9 @@ const SearchInput = ({ handleSearch }) => {
 
 
 const Search = () => {
+  
+    const { getSearchResult } = useContext(CryptoContext);
+      
   return (
     <div className="relative">
        <SearchInput handleSearch={debounceFunc} />
