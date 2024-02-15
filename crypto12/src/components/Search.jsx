@@ -78,11 +78,17 @@ const SearchInput = ({ handleSearch }) => {
 
 const Search = () => {
   
-    const { getSearchResult } = useContext(CryptoContext);
-      
+  const { getSearchResult } = useContext(CryptoContext);
+  
+   
+   const handleDebouncedSearch = debounce((val) => {
+    
+    getSearchResult(val);
+  }, 300); 
+
   return (
     <div className="relative">
-       <SearchInput handleSearch={debounceFunc} />
+       <SearchInput handleSearch={handleDebouncedSearch} />
     </div>
 
   )
